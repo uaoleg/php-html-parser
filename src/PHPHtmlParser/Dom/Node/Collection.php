@@ -90,11 +90,8 @@ class Collection implements IteratorAggregate, ArrayAccess, Countable
 
     /**
      * Set an attribute by the given offset.
-     *
-     * @param mixed $offset
-     * @param mixed $value
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet(mixed $offset, mixed $value): void
     {
         if (\is_null($offset)) {
             $this->collection[] = $value;
@@ -105,32 +102,24 @@ class Collection implements IteratorAggregate, ArrayAccess, Countable
 
     /**
      * Checks if an offset exists.
-     *
-     * @param mixed $offset
      */
-    public function offsetExists($offset): bool
+    public function offsetExists(mixed $offset): bool
     {
         return isset($this->collection[$offset]);
     }
 
     /**
      * Unset a collection Node.
-     *
-     * @param mixed $offset
      */
-    public function offsetUnset($offset): void
+    public function offsetUnset(mixed $offset): void
     {
         unset($this->collection[$offset]);
     }
 
     /**
      * Gets a node at the given offset, or null.
-     *
-     * @param mixed $offset
-     *
-     * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet(mixed $offset): mixed
     {
         return $this->collection[$offset] ?? null;
     }
